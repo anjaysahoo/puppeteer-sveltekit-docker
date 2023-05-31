@@ -38,7 +38,7 @@ export async function GET() {
 
 4. Update the adpater to Node from Auto
    1. Update `svelte.config.js` file with '@sveltejs/adapter-auto' to '@sveltejs/adapter-node'
-   2. Update `package.json` file with '@sveltejs/adapter-auto' to '@sveltejs/adapter-node'
+   2. Update `package.json` file with '@sveltejs/adapter-auto' to '@sveltejs/adapter-node' and update the version
    3. Then run `npm install` to install the adapter
 
 5. Create a `Dockerfile` in root folder
