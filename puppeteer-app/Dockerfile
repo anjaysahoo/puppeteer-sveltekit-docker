@@ -1,3 +1,6 @@
+# Below line are used to create ./build folder,
+# which is used to copy the build files from the builder stage.
+# This is done to reduce the size of the final image.
 FROM node:16.19.0-alpine3.16 AS builder
 WORKDIR /puppeteer-sveltekit-docker
 COPY package.json package-lock.json ./
@@ -5,7 +8,10 @@ RUN npm ci
 COPY . .
 RUN npm run build
 RUN npm ci --omit dev
+############################################################
 
+# Below line are used to create the final image.
+# Using lightweight Linux distribution based on Alpine Linux.
 FROM alpine
 # Installs latest Chromium (100) package.
 RUN apk add --no-cache \
