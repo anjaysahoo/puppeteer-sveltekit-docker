@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  puppeteer-sveltekit-docker:
+    image: puppeteer-sveltekit-docker-image:1.0.0
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        PORT: 3000
+    container_name: puppeteer-sveltekit-docker-container
+    ports:
+      - "3000:3000/tcp"
+
