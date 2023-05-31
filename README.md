@@ -57,6 +57,7 @@ RUN npm ci --omit dev
 
 # Below line are used to create the final image.
 # Using lightweight Linux distribution based on Alpine Linux.
+# https://pptr.dev/troubleshooting#running-on-alpine
 FROM alpine
 # Installs latest Chromium (100) package.
 RUN apk add --no-cache \
@@ -84,6 +85,7 @@ RUN addgroup -S pptruser && adduser -S -G pptruser pptruser \
 # Run everything after as non-privileged user.
 USER pptruser
 
+# Copy the build files from the builder stage.
 WORKDIR /puppeteer-sveltekit-docker
 COPY --from=builder --chown=pptruser /puppeteer-sveltekit-docker/build ./build
 COPY --from=builder --chown=pptruser /puppeteer-sveltekit-docker/node_modules ./node_modules
