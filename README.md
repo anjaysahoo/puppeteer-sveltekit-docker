@@ -123,7 +123,9 @@ services:
 8. Run `docker-compose up` to build and run the docker container
 9. Open `http://localhost:3000/api` to see the screenshot
 
-> Note: Don't forget pass `{ args: ['--no-sandbox'] }` in `puppeteer.launch` function, otherwise it will throw error.
+> Note: 
+> 1. Don't forget pass `{ args: ['--no-sandbox'] }` in `puppeteer.launch` function, otherwise it will throw error.
+> 2. Also try to use different Puppeteer version if various argument passed in places like page.screenshot({fullPage: false}) does not work. Mostly latest version should solve the problem.
 > 
 ## Intiution behind make this whole thing work
 * Everything run fine on local system but when we try to run it in docker container it throws error.
